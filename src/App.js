@@ -8,6 +8,16 @@ function App () {
         setText(value)
     }
 
+    function countWords(str) {
+        const arr = str.trim().split(' ')
+        if(arr[0] === ""){
+            console.log(0)
+        } else {
+            console.log(arr.length)
+        }
+        
+    }
+
     console.log(text)
 
     return (
@@ -15,7 +25,7 @@ function App () {
             <h1>Speed Typing Game</h1>
             <textarea value={text} onChange={handleChange}/>
             <h4>Time Remaining: 0</h4>
-            <button>Start Game</button>
+            <button onClick={() => countWords(text)}>Start Game</button>
             <h1>Word Count: </h1>
         </div>
     )
