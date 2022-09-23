@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/SpeedTypingGame/static/css/main.f45a35b8.css",
-    "main.js": "/SpeedTypingGame/static/js/main.18f8e834.js",
+    "main.css": "/SpeedTypingGame/static/css/main.2ed9a8ef.css",
+    "main.js": "/SpeedTypingGame/static/js/main.6d08bdcc.js",
     "index.html": "/SpeedTypingGame/index.html",
-    "main.f45a35b8.css.map": "/SpeedTypingGame/static/css/main.f45a35b8.css.map",
-    "main.18f8e834.js.map": "/SpeedTypingGame/static/js/main.18f8e834.js.map"
+    "main.2ed9a8ef.css.map": "/SpeedTypingGame/static/css/main.2ed9a8ef.css.map",
+    "main.6d08bdcc.js.map": "/SpeedTypingGame/static/js/main.6d08bdcc.js.map"
   },
   "entrypoints": [
-    "static/css/main.f45a35b8.css",
-    "static/js/main.18f8e834.js"
+    "static/css/main.2ed9a8ef.css",
+    "static/js/main.6d08bdcc.js"
   ]
 }
