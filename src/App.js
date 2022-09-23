@@ -8,6 +8,7 @@ function App () {
     const [timeRemaining, setTimeRemaining] = React.useState(startTime)
     const [isTimeRunning, setisTimeRunning] = React.useState(false)
     const [wordCount, setWordCount] = React.useState(0)
+    const [disableButton, setDisableButton] = React.useState(false)
     
     function handleChange(e) {
         const {value} = e.target
@@ -28,10 +29,12 @@ function App () {
         setisTimeRunning(true)
         setWordCount(0)
         setText("")
+        setDisableButton(true)
     }
     function endGame() {
         setisTimeRunning(false)
         setWordCount(countWords(text))
+        setDisableButton(false)
     }
 
         React.useEffect(()=> {
@@ -55,7 +58,7 @@ function App () {
             <h1>Speed Typing Game</h1>
             <textarea value={text} onChange={handleChange}/>
             <h4>Time Remaining: {timeRemaining}</h4>
-            <button onClick={startGame} >Start Game</button>
+            <button onClick={startGame} disabled={disableButton}>Start Game</button>
             <h1>Word Count: {wordCount}</h1>
         </div>
     )
