@@ -1,64 +1,15 @@
 import React from 'react'
+import useGameLogic from './useGameLogic'
 
 function App () {
 
-    const startTime = 5;
-
-    const [text, setText] = React.useState("")
-    const [timeRemaining, setTimeRemaining] = React.useState(startTime)
-    const [isTimeRunning, setisTimeRunning] = React.useState(false)
-    const [wordCount, setWordCount] = React.useState(0)
-    const [disableButton, setDisableButton] = React.useState(false)
-    
-    function handleChange(e) {
-        const {value} = e.target
-        setText(value)
-    }
-
-    function countWords(str) {
-        const arr = str.trim().split(' ')
-        if(arr[0] === ""){
-            return 0
-        } else {
-            return arr.length
-        }
-        
-    }
-    function startGame() {
-        setTimeRemaining(startTime)
-        setisTimeRunning(true)
-        setWordCount(0)
-        setText("")
-        setDisableButton(true)
-    }
-    function endGame() {
-        setisTimeRunning(false)
-        setWordCount(countWords(text))
-        setDisableButton(false)
-    }
-
-        React.useEffect(()=> {
-            if( isTimeRunning && timeRemaining > 0){
-                setTimeout(() => {
-                    setTimeRemaining(prevTime => prevTime - 1)
-                }, "1000")
-            } else {
-                endGame()
-            }
-        }, [timeRemaining, isTimeRunning])
-    
-    
-
-        console.log(isTimeRunning)
-
-    console.log(text)
-
+    const { textBoxRef, text, handleChange, isTimeRunning, timeRemaining, wordCount, startGame} = useGameLogic();
     return (
         <div className='game-container'>
             <h1>Speed Typing Game</h1>
-            <textarea value={text} onChange={handleChange} disabled={!isTimeRunning}/>
+            <textarea ref={textBoxRef} value={text} onChange={handleChange} disabled={!isTimeRunning} />
             <h4>Time Remaining: {timeRemaining}</h4>
-            <button onClick={startGame} disabled={disableButton}>Start Game</button>
+            <button onClick={startGame} disabled={isTimeRunning}>Start Game</button>
             <h1>Word Count: {wordCount}</h1>
         </div>
     )
